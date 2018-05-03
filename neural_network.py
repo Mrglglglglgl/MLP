@@ -7,7 +7,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import scipy.io
 
 
-
+# this is a comment
 def load_data():
 	"""
 	A function that loads the mnist data
