@@ -10,7 +10,7 @@ from keras.models import Sequential, Model
 from keras.layers import Conv2D, MaxPooling2D, LSTM, Dense, Dropout, Flatten, Input
 from keras import backend as K
 from keras import optimizers
-import neural_network as nn
+import helper_functions as nn
 
 num_of_epochs = 100
 batch_size = 128
