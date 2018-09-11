@@ -22,7 +22,8 @@ hidden_2 = 50
 #load the data
 train_data, train_labels, test_data, test_labels = nn.load_data()
 #use the model to get losses and accuracies
-train_loss , test_loss, train_accuracy, test_accuracy = nn.MLP(hidden_1, hidden_2 ,train_data, train_labels, test_data, test_labels, num_of_epochs, batch_size, learning_rate)
+train_loss , test_loss, train_accuracy, test_accuracy = nn.MLP(hidden_1, hidden_2 ,train_data, train_labels, test_data,
+                                                               test_labels, num_of_epochs, batch_size, learning_rate)
 
 #------------------------KERAS MODEL-------------------------------#
 
