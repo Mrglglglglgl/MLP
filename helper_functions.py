@@ -7,7 +7,6 @@ from tensorflow.examples.tutorials.mnist import input_data
 import scipy.io
 
 
-# this is a comment
 def load_data():
 	"""
 	A function that loads the mnist data
@@ -172,12 +171,16 @@ def MLP(hidden_1, hidden_2 ,train_data, train_labels, test_data, test_labels, nu
 		batches_labels = [shuffled_labels[k:k+batch_size] for k in range(0, train_data.shape[0], batch_size)]
 		for batch, batch_labels in zip (batches, batches_labels):
 			z_1, a_1, z_2, a_2, z_3, a_3 = fpass(batch, w_1, b_1, w_2, b_2, w_3, b_3)
-			d_b_3, d_w_3, d_b_2, d_w_2, d_b_1, d_w_1 = bpass(batch, batch_labels, w_1, z_1, a_1, w_2, z_2, a_2, w_3, z_3, a_3)
-			w_1, b_1, w_2, b_2, w_3, b_3 = update_weights(w_1, b_1, d_w_1, d_b_1, w_2, b_2, d_w_2, d_b_2, w_3 ,b_3, d_w_3, d_b_3, learning_rate)
+			d_b_3, d_w_3, d_b_2, d_w_2, d_b_1, d_w_1 = bpass(batch, batch_labels, w_1, z_1, a_1, w_2, z_2, a_2, w_3,
+									 z_3, a_3)
+			w_1, b_1, w_2, b_2, w_3, b_3 = update_weights(w_1, b_1, d_w_1, d_b_1, w_2, b_2, d_w_2, d_b_2, w_3 ,b_3,
+								      d_w_3, d_b_3, learning_rate)
 		a_pred_train_3 = pred(train_data, w_1, b_1, w_2, b_2, w_3, b_3)
 		a_pred_test_3 = pred(test_data, w_1, b_1, w_2, b_2, w_3, b_3)
-		print('Train loss = ','   ', cost(a_pred_train_3, train_labels),'   ','Train accuracy = ', accuracy(a_pred_train_3, train_labels))
-		print('Test loss = ','   ', cost(a_pred_test_3, test_labels), '   ','Test accuracy = ', accuracy(a_pred_test_3, test_labels))
+		print('Train loss = ','   ', cost(a_pred_train_3, train_labels),'   ','Train accuracy = ', accuracy(a_pred_train_3,
+														    train_labels))
+		print('Test loss = ','   ', cost(a_pred_test_3, test_labels), '   ','Test accuracy = ', accuracy(a_pred_test_3,
+														 test_labels))
 		train_loss.append(cost(a_pred_train_3, train_labels))
 		test_loss.append(cost(a_pred_test_3, test_labels))
 		train_accuracy.append(accuracy(a_pred_train_3, train_labels))
