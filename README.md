@@ -1,2 +1,2 @@
-# MLP
-A simple MLP with manual backprop
+# Numpy_MLP
+A A simple 3-layer MLP with manual backprop using numpy
